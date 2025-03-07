@@ -1,8 +1,29 @@
 /** @type {import('tailwindcss').Config} */
+import colors from 'tailwindcss/colors'
 module.exports = {
-  content: ["./src/**/*.{html,js}"],
+  purge: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
   theme: {
-    extend: {},
+    colors: {
+      ...colors,
+    },
+    fontFamily: {
+      sans: ['Graphik', 'sans-serif'],
+      serif: ['Merriweather', 'serif'],
+    },
+    extend: {
+      spacing: {
+        '128': '32rem',
+        '144': '36rem',
+      },
+      borderRadius: {
+        '4xl': '2rem',
+      }
+    }
   },
-  plugins: [],
+  variants: {
+    extend: {
+      borderColor: ['focus-visible'],
+      opacity: ['disabled'],
+    }
+  }
 }
